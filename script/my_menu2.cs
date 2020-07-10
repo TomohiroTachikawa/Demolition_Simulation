@@ -13,7 +13,7 @@ public class my_menu2 : MonoBehaviour
 
 
    OtherObjectAction ooa, ooa2;
-   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6;
+   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6, ooa_7, ooa_8, ooa_9;
 
     main my_main;
 
@@ -32,6 +32,7 @@ public class my_menu2 : MonoBehaviour
     public GameObject now_activ;
     public GameObject futa_func;
     public GameObject switch_func;
+    public GameObject handle_func;
 
 
     void Start()
@@ -58,6 +59,12 @@ public class my_menu2 : MonoBehaviour
         ooa_5 = switch_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
         ooa_6 = switch_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         switch_func.SetActive(false);
+
+        handle_func = GameObject.Find("my_rs3Menu/handle");
+        ooa_7 = handle_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
+        ooa_8 = handle_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
+        ooa_9 = handle_func.transform.Find("Close").GetComponent<OtherObjectAction>();
+        handle_func.SetActive(false);
 
 
         now_activ = futa_func;
@@ -101,9 +108,10 @@ public class my_menu2 : MonoBehaviour
 
 
         use_ooa(ooa_1, ooa_2, ooa_3);
-        use_ooa(ooa_4,ooa_5,ooa_6);
+        use_ooa(ooa_4, ooa_5, ooa_6);
+        use_ooa(ooa_7, ooa_8, ooa_9);
 
-    
+
 
 
     }
@@ -182,7 +190,14 @@ public class my_menu2 : MonoBehaviour
                     my_rs3Menu.SetActive(true);
                     switch_func.SetActive(true);
                 }
-                
+
+                if (rs3_part.name == "RS3_handle")
+                {
+                    now_activ = handle_func;
+                    my_rs3Menu.SetActive(true);
+                    handle_func.SetActive(true);
+                }
+
             }
             Debug.Log(my_main.now);
         }

@@ -17,6 +17,7 @@ public class record_keeper : MonoBehaviour
 
     public Sprite _futa;
     public Sprite _switchs;
+    public Sprite _handle;
 
 
     public Sprite _ari;
@@ -99,6 +100,11 @@ public class record_keeper : MonoBehaviour
             else if (my_Menu.now_activ == my_Menu.switch_func)
             {
                 Target_Sprite.sprite = _switchs;
+
+            }
+            else if (my_Menu.now_activ == my_Menu.handle_func)
+            {
+                Target_Sprite.sprite = _handle;
 
             }
 
