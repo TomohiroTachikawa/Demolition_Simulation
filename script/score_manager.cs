@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class score_manager : MonoBehaviour
 {
-    my_menu my_Menu;
+    my_menu2 my_Menu;
 
     void Start()
     {
-        my_Menu = GameObject.Find("main").GetComponent<my_menu>();
+        my_Menu = GameObject.Find("main").GetComponent<my_menu2>();
         Debug.Log(my_Menu);
     }
 

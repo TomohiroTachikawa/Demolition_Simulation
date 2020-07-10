@@ -42,9 +42,17 @@ public class main : MonoBehaviour
         {
 
             GameObject vrpoint = VRPointer.instance.getHit(0).collider.gameObject;
-            if (vrpoint.GetComponent<NoEntryRecognition>()) target = null;
-            else if (vrpoint.transform.root.name != "rs3") target = null;
-            else target = VRPointer.instance.getHit(0).collider.gameObject;
+          
+            if (vrpoint.transform.root.name != "rs3")
+            {
+   
+                target = null;
+            }
+            else 
+            {
+
+                target = VRPointer.instance.getHit(0).collider.gameObject;
+            }
 
         }
         else target = null; 

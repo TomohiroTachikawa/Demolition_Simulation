@@ -11,12 +11,16 @@ public class my_menu : MonoBehaviour
     GameObject my_score;
     GameObject my_answers;
 
+    GameObject futa_func,futa_menu, futa_check1,futa_check2, futa_button1, futa_button2, futa_button3, futa_button4;
 
     OtherObjectAction ooa;
     OtherObjectAction ooa2;
     OtherObjectAction ooa3;
     OtherObjectAction ooa4;
     OtherObjectAction ooa5;
+
+    OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4;
+
 
     main my_main;
 
@@ -33,11 +37,17 @@ public class my_menu : MonoBehaviour
 
     List<GameObject> rs3_select = new List<GameObject>();
 
+    public Hashtable obj_menu = new Hashtable();
+
     void Start()
     {
 
         my_main = GameObject.Find("main").GetComponent<main>();
         Debug.Log(my_main);
+
+        futa_func = GameObject.Find("AppearanceCheck");
+        Debug.Log(futa_func);
+        ooa_1 = futa_func.transform.Find("ChexkPointFrame/Result0/Yes").GetComponent<OtherObjectAction>();
 
         my_score = GameObject.Find("my_score");
         ooa = my_score.transform.GetChild(1).gameObject.GetComponent<OtherObjectAction>();
@@ -51,6 +61,18 @@ public class my_menu : MonoBehaviour
         ooa3 = my_answers.transform.GetChild(1).gameObject.GetComponent<OtherObjectAction>();
         ooa4 = my_answers.transform.GetChild(2).gameObject.GetComponent<OtherObjectAction>();
         ooa5 = my_answers.transform.GetChild(3).gameObject.GetComponent<OtherObjectAction>();
+
+        my_answers.SetActive(false);
+
+
+        futa_menu = futa_func.transform.GetChild(1).gameObject;
+        futa_check1 = futa_func.transform.GetChild(1).gameObject;
+        futa_check2 = futa_func.transform.GetChild(2).gameObject;
+
+        ooa_1 = futa_menu.transform.GetChild(1).gameObject.GetComponent<OtherObjectAction>();
+        ooa_2 = futa_menu.transform.GetChild(2).gameObject.GetComponent<OtherObjectAction>();
+        ooa_3 = futa_menu.transform.GetChild(3).gameObject.GetComponent<OtherObjectAction>();
+        ooa_4 = futa_menu.transform.GetChild(4).gameObject.GetComponent<OtherObjectAction>();
 
         my_answers.SetActive(false);
 
@@ -142,7 +164,16 @@ public class my_menu : MonoBehaviour
                     rs3_part = my_main.now;
                     Debug.Log(rs3_part);
                     rs3_select.Add(rs3_part);
-                    my_answers.SetActive(true);
+
+                    if(rs3_part.name == "RS3_sotobako")
+                    {
+
+                    }
+
+
+
+
+
                 }
                
 
