@@ -13,7 +13,7 @@ public class my_menu2 : MonoBehaviour
 
 
    OtherObjectAction ooa, ooa2;
-   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6, ooa_7, ooa_8, ooa_9;
+   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6, ooa_7, ooa_8, ooa_9 ,ooa_10, ooa_11, ooa_12;
 
     main my_main;
 
@@ -33,7 +33,7 @@ public class my_menu2 : MonoBehaviour
     public GameObject futa_func;
     public GameObject switch_func;
     public GameObject handle_func;
-
+    public GameObject coverGaishi_func;
 
     void Start()
     {
@@ -48,24 +48,31 @@ public class my_menu2 : MonoBehaviour
         my_rs3Menu = GameObject.Find("my_rs3Menu");
     
 
-        futa_func = GameObject.Find("my_rs3Menu/futa");
+        futa_func = my_rs3Menu.transform.Find("futa").gameObject;
         ooa_1 = futa_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
         ooa_2 = futa_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
         ooa_3 = futa_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         futa_func.SetActive(false);
 
-        switch_func = GameObject.Find("my_rs3Menu/switch");
+        switch_func = my_rs3Menu.transform.Find("switch").gameObject;
         ooa_4 = switch_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
         ooa_5 = switch_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
         ooa_6 = switch_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         switch_func.SetActive(false);
 
-        handle_func = GameObject.Find("my_rs3Menu/handle");
+        handle_func = my_rs3Menu.transform.Find("handle").gameObject;
         ooa_7 = handle_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
         ooa_8 = handle_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
         ooa_9 = handle_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         handle_func.SetActive(false);
 
+        coverGaishi_func = my_rs3Menu.transform.Find("coverGaishi").gameObject;
+        ooa_10 = coverGaishi_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
+        ooa_11= coverGaishi_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
+        ooa_12 = coverGaishi_func.transform.Find("Close").GetComponent<OtherObjectAction>();
+        coverGaishi_func.SetActive(false);
+
+     
 
         now_activ = futa_func;
         now_activ.SetActive(false);
@@ -110,6 +117,7 @@ public class my_menu2 : MonoBehaviour
         use_ooa(ooa_1, ooa_2, ooa_3);
         use_ooa(ooa_4, ooa_5, ooa_6);
         use_ooa(ooa_7, ooa_8, ooa_9);
+        use_ooa(ooa_10, ooa_11, ooa_12);
 
 
 
@@ -196,6 +204,13 @@ public class my_menu2 : MonoBehaviour
                     now_activ = handle_func;
                     my_rs3Menu.SetActive(true);
                     handle_func.SetActive(true);
+                }
+
+                if (rs3_part.name == "RS3_coverGaishi")
+                {
+                    now_activ = coverGaishi_func;
+                    my_rs3Menu.SetActive(true);
+                    coverGaishi_func.SetActive(true);
                 }
 
             }
