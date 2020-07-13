@@ -124,6 +124,8 @@ public class my_menu2 : MonoBehaviour
 
     }
 
+    bool no_ans;
+
     void use_ooa(OtherObjectAction par1, OtherObjectAction par2, OtherObjectAction par3)
     {
         if (par1.param[0] > 0)
@@ -132,6 +134,7 @@ public class my_menu2 : MonoBehaviour
             ans_par = true;
             par1.param[0] = 0;
             ans_push = true;
+            no_ans = false;
  
         }
 
@@ -149,6 +152,8 @@ public class my_menu2 : MonoBehaviour
             par3.param[0] = 0;
             now_activ.SetActive(false);
             my_rs3Menu.SetActive(false);
+
+            click_close = true;
         }
     }
 
@@ -162,7 +167,6 @@ public class my_menu2 : MonoBehaviour
 
         if (VRControllerMGR.instance.checkControllerStatus(0, ViveControllerStatus.TouchpadClickPress))
         {
-            Debug.Log(my_main);
             Debug.Log(now_activ.activeSelf);
 
             if (my_main.now != null& now_activ.activeSelf == false)
@@ -170,20 +174,8 @@ public class my_menu2 : MonoBehaviour
                 
                 rs3_push = true;
                 rs3_part = my_main.now;
-               
 
-                if (rs3_select.Contains(rs3_part))
-                {
-                    exist_num = rs3_select.IndexOf(rs3_part);
-                    exist_part = true;
-                }
-                else
-                {
-                    rs3_select.Add(rs3_part);
-                    exist_part = false;
-                }
-                             
-     
+
                 if (rs3_part.name == "RS3_sotobako")
                 {
                     now_activ = futa_func;
@@ -214,9 +206,27 @@ public class my_menu2 : MonoBehaviour
                 }
 
             }
-            Debug.Log(my_main.now);
         }
+
     }
+
+    public void check_record()
+    {
+
+            if (rs3_select.Contains(rs3_part))
+            {
+                exist_num = rs3_select.IndexOf(rs3_part);
+                exist_part = true;
+            }
+            else
+            {
+                rs3_select.Add(rs3_part);
+                exist_part = false;
+            }
+        
+    }
+
+
 
     void call_score()
     {

@@ -50,37 +50,90 @@ public class record_keeper : MonoBehaviour
             {
                 if (tra4.name == "ConditionLabel")
                 {
-                    all_check_status .Add(tra4.transform.Find("Label").gameObject);
+                    all_check_status.Add(tra4.transform.Find("Label").gameObject);
                 }
             }
         }
 
-   
+
     }
 
+    bool once_time = true ;
     void Update()
     {
 
-        if (my_Menu.rs3_push  == true )
+        if (my_Menu.ans_push == true)
         {
+
+
+            once_play();
+
+
+            my_Menu.ans_push = false;
+
+
+            if (my_Menu.ans_par == true)
+            {
+                Target_Sprite_sta.sprite = _ari;
+            }
+            else
+            {
+                Target_Sprite_sta.sprite = _nasi;
+            }
+
+
+
+            if (my_Menu.exist_part == false)
+            {
+                act = check_point.transform.GetChild(ch_order).gameObject;
+                act.SetActive(true);
+                Debug.Log(act);
+            }
+            else
+            {
+                Debug.Log("ccc");
+                act = check_point.transform.GetChild(exist_ch_order).gameObject;
+                act.SetActive(true);
+            }
+
+        }
+
+
+        if (my_Menu.click_close == true)
+        {
+            my_Menu.click_close = false;
+            once_time = true;
+
+        }
+
+    }
+
+    void once_play()
+    {
+        if (once_time == true)
+        {
+            once_time = false;
+
+            my_Menu.check_record();
+
             Debug.Log(my_Menu.exist_num);
             Debug.Log(ch_order);
 
             if (my_Menu.exist_part == false)
             {
 
-                if ( ch_order <= 8)
+                if (ch_order <= 8)
                 {
                     ch_order += 1;
                 }
                 Debug.Log("aaa");
                 Target_Sprite = all_check_points[ch_order].GetComponent<SpriteRenderer>();
                 Target_Sprite_sta = all_check_status[ch_order].GetComponent<SpriteRenderer>();
-                
+
 
 
             }
-            else 
+            else
             {
                 Debug.Log("bbb");
                 exist_ch_order = my_Menu.exist_num;
@@ -115,46 +168,65 @@ public class record_keeper : MonoBehaviour
             }
 
         }
+    }
 
-        if (my_Menu.ans_push == true )
+    void no_use1()
         {
-            my_Menu.ans_push = false;
+        if (my_Menu.rs3_push == true)
+        {
+            my_Menu.check_record();
 
-            if (my_Menu.ans_par == true)
-            {
-                Target_Sprite_sta.sprite = _ari;
-            }
-            else
-            {
-                Target_Sprite_sta.sprite = _nasi;
-            }
-
-
+            Debug.Log(my_Menu.exist_num);
+            Debug.Log(ch_order);
 
             if (my_Menu.exist_part == false)
             {
-                
-                act = check_point.transform.GetChild(ch_order).gameObject;
-                act.SetActive(true);
-                Debug.Log(act);
 
-             
+                if (ch_order <= 8)
+                {
+                    ch_order += 1;
+                }
+                Debug.Log("aaa");
+                Target_Sprite = all_check_points[ch_order].GetComponent<SpriteRenderer>();
+                Target_Sprite_sta = all_check_status[ch_order].GetComponent<SpriteRenderer>();
+
+
+
             }
             else
             {
-                Debug.Log("ccc");
-                act = check_point.transform.GetChild(exist_ch_order).gameObject;
-                act.SetActive(true);
+                Debug.Log("bbb");
+                exist_ch_order = my_Menu.exist_num;
+                Target_Sprite = all_check_points[exist_ch_order].GetComponent<SpriteRenderer>();
+                Target_Sprite_sta = all_check_status[exist_ch_order].GetComponent<SpriteRenderer>();
             }
 
 
+            my_Menu.rs3_push = false;
+
+
+            Debug.Log(my_Menu.now_activ);
+            if (my_Menu.now_activ == my_Menu.futa_func)
+            {
+                Target_Sprite.sprite = _futa;
+
+            }
+            else if (my_Menu.now_activ == my_Menu.switch_func)
+            {
+                Target_Sprite.sprite = _switchs;
+
+            }
+            else if (my_Menu.now_activ == my_Menu.handle_func)
+            {
+                Target_Sprite.sprite = _handle;
+
+            }
+            else if (my_Menu.now_activ == my_Menu.coverGaishi_func)
+            {
+                Target_Sprite.sprite = _coverGaishi;
+
+            }
 
         }
-
-
-
-
-
-
     }
 }
