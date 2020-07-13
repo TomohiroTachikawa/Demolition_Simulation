@@ -13,10 +13,10 @@ public class my_menu2 : MonoBehaviour
 
 
    OtherObjectAction ooa, ooa2;
-   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
-                     ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
-                     ooa_13, ooa_14, ooa_15, ooa_16, ooa_17, ooa_18,
-                     ooa_19, ooa_20, ooa_21;
+    OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
+                      ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
+                      ooa_13, ooa_14, ooa_15, ooa_16, ooa_17, ooa_18,
+                      ooa_19, ooa_20, ooa_21, ooa_22, ooa_23, ooa_24;
 
     main my_main;
 
@@ -42,6 +42,7 @@ public class my_menu2 : MonoBehaviour
     public GameObject Bolt_func;
     public GameObject sokoFuta_func;
     public GameObject bolt_func;
+    public GameObject tanshi_func;
 
     void Start()
     {
@@ -98,6 +99,12 @@ public class my_menu2 : MonoBehaviour
         ooa_21 = bolt_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         bolt_func.SetActive(false);
 
+        tanshi_func = my_rs3Menu.transform.Find("tanshi").gameObject;
+        ooa_22 = tanshi_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
+        ooa_23 = tanshi_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
+        ooa_24 = tanshi_func.transform.Find("Close").GetComponent<OtherObjectAction>();
+        tanshi_func.SetActive(false);
+
         now_activ = futa_func;
         now_activ.SetActive(false);
         my_rs3Menu.SetActive(false);
@@ -145,6 +152,7 @@ public class my_menu2 : MonoBehaviour
         use_ooa(ooa_13, ooa_14, ooa_15);
         use_ooa(ooa_16, ooa_17, ooa_18);
         use_ooa(ooa_19, ooa_20, ooa_21);
+        use_ooa(ooa_22, ooa_23, ooa_24);
 
 
 
@@ -251,6 +259,14 @@ public class my_menu2 : MonoBehaviour
                     now_activ = bolt_func;
                     my_rs3Menu.SetActive(true);
                     bolt_func.SetActive(true);
+                }
+
+
+                if (rs3_part.name == "RS3_settitanshi")
+                {
+                    now_activ = tanshi_func;
+                    my_rs3Menu.SetActive(true);
+                    tanshi_func.SetActive(true);
                 }
 
             }

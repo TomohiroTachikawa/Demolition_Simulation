@@ -22,6 +22,7 @@ public class record_keeper : MonoBehaviour
     public Sprite _Gaishi;
     public Sprite _sokoFuta;
     public Sprite _bolt;
+    public Sprite _tanshi;
 
 
     public Sprite _ari;
@@ -182,6 +183,11 @@ public class record_keeper : MonoBehaviour
             else if (my_Menu.now_activ == my_Menu.bolt_func)
             {
                 Target_Sprite.sprite = _bolt;
+
+            }
+            else if (my_Menu.now_activ == my_Menu.tanshi_func)
+            {
+                Target_Sprite.sprite = _tanshi;
 
             }
         }
