@@ -13,7 +13,9 @@ public class my_menu2 : MonoBehaviour
 
 
    OtherObjectAction ooa, ooa2;
-   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6, ooa_7, ooa_8, ooa_9 ,ooa_10, ooa_11, ooa_12;
+    OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
+                      ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
+                      ooa_13, ooa_14, ooa_15;
 
     main my_main;
 
@@ -34,6 +36,9 @@ public class my_menu2 : MonoBehaviour
     public GameObject switch_func;
     public GameObject handle_func;
     public GameObject coverGaishi_func;
+    public GameObject Gaishi_func;
+    public GameObject Shita_func;
+    public GameObject Bolt_func;
 
     void Start()
     {
@@ -72,7 +77,13 @@ public class my_menu2 : MonoBehaviour
         ooa_12 = coverGaishi_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         coverGaishi_func.SetActive(false);
 
-     
+        Gaishi_func = my_rs3Menu.transform.Find("Gaishi").gameObject;
+        ooa_13 = Gaishi_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
+        ooa_14 = Gaishi_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
+        ooa_15 = Gaishi_func.transform.Find("Close").GetComponent<OtherObjectAction>();
+        Gaishi_func.SetActive(false);
+
+
 
         now_activ = futa_func;
         now_activ.SetActive(false);
@@ -118,6 +129,7 @@ public class my_menu2 : MonoBehaviour
         use_ooa(ooa_4, ooa_5, ooa_6);
         use_ooa(ooa_7, ooa_8, ooa_9);
         use_ooa(ooa_10, ooa_11, ooa_12);
+        use_ooa(ooa_13, ooa_14, ooa_15);
 
 
 
@@ -203,6 +215,13 @@ public class my_menu2 : MonoBehaviour
                     now_activ = coverGaishi_func;
                     my_rs3Menu.SetActive(true);
                     coverGaishi_func.SetActive(true);
+                }
+
+                if (rs3_part.name == "RS3_gaishi")
+                {
+                    now_activ = Gaishi_func;
+                    my_rs3Menu.SetActive(true);
+                    Gaishi_func.SetActive(true);
                 }
 
             }
