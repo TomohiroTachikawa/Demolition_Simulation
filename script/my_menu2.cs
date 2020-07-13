@@ -15,7 +15,8 @@ public class my_menu2 : MonoBehaviour
    OtherObjectAction ooa, ooa2;
    OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
                      ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
-                     ooa_13, ooa_14, ooa_15, ooa_16, ooa_17, ooa_18;
+                     ooa_13, ooa_14, ooa_15, ooa_16, ooa_17, ooa_18,
+                     ooa_19, ooa_20, ooa_21;
 
     main my_main;
 
@@ -40,6 +41,7 @@ public class my_menu2 : MonoBehaviour
     public GameObject Shita_func;
     public GameObject Bolt_func;
     public GameObject sokoFuta_func;
+    public GameObject bolt_func;
 
     void Start()
     {
@@ -90,6 +92,11 @@ public class my_menu2 : MonoBehaviour
         ooa_18 = sokoFuta_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         sokoFuta_func.SetActive(false);
 
+        bolt_func = my_rs3Menu.transform.Find("bolt").gameObject;
+        ooa_19 = bolt_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
+        ooa_20 = bolt_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
+        ooa_21 = bolt_func.transform.Find("Close").GetComponent<OtherObjectAction>();
+        bolt_func.SetActive(false);
 
         now_activ = futa_func;
         now_activ.SetActive(false);
@@ -137,6 +144,7 @@ public class my_menu2 : MonoBehaviour
         use_ooa(ooa_10, ooa_11, ooa_12);
         use_ooa(ooa_13, ooa_14, ooa_15);
         use_ooa(ooa_16, ooa_17, ooa_18);
+        use_ooa(ooa_19, ooa_20, ooa_21);
 
 
 
@@ -236,6 +244,13 @@ public class my_menu2 : MonoBehaviour
                     now_activ = sokoFuta_func;
                     my_rs3Menu.SetActive(true);
                     sokoFuta_func.SetActive(true);
+                }
+
+                if (rs3_part.name == "RS3_bolt")
+                {
+                    now_activ = bolt_func;
+                    my_rs3Menu.SetActive(true);
+                    bolt_func.SetActive(true);
                 }
 
             }
