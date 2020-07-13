@@ -13,9 +13,9 @@ public class my_menu2 : MonoBehaviour
 
 
    OtherObjectAction ooa, ooa2;
-    OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
-                      ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
-                      ooa_13, ooa_14, ooa_15;
+   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
+                     ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
+                     ooa_13, ooa_14, ooa_15, ooa_16, ooa_17, ooa_18;
 
     main my_main;
 
@@ -39,6 +39,7 @@ public class my_menu2 : MonoBehaviour
     public GameObject Gaishi_func;
     public GameObject Shita_func;
     public GameObject Bolt_func;
+    public GameObject sokoFuta_func;
 
     void Start()
     {
@@ -83,6 +84,11 @@ public class my_menu2 : MonoBehaviour
         ooa_15 = Gaishi_func.transform.Find("Close").GetComponent<OtherObjectAction>();
         Gaishi_func.SetActive(false);
 
+        sokoFuta_func = my_rs3Menu.transform.Find("sokofuta").gameObject;
+        ooa_16 = sokoFuta_func.transform.Find("CheckPointFrame/answerZone/Yes").GetComponent<OtherObjectAction>();
+        ooa_17 = sokoFuta_func.transform.Find("CheckPointFrame/answerZone/No").GetComponent<OtherObjectAction>();
+        ooa_18 = sokoFuta_func.transform.Find("Close").GetComponent<OtherObjectAction>();
+        sokoFuta_func.SetActive(false);
 
 
         now_activ = futa_func;
@@ -130,6 +136,7 @@ public class my_menu2 : MonoBehaviour
         use_ooa(ooa_7, ooa_8, ooa_9);
         use_ooa(ooa_10, ooa_11, ooa_12);
         use_ooa(ooa_13, ooa_14, ooa_15);
+        use_ooa(ooa_16, ooa_17, ooa_18);
 
 
 
@@ -222,6 +229,13 @@ public class my_menu2 : MonoBehaviour
                     now_activ = Gaishi_func;
                     my_rs3Menu.SetActive(true);
                     Gaishi_func.SetActive(true);
+                }
+
+                if (rs3_part.name == "RS3_futa")
+                {
+                    now_activ = sokoFuta_func;
+                    my_rs3Menu.SetActive(true);
+                    sokoFuta_func.SetActive(true);
                 }
 
             }

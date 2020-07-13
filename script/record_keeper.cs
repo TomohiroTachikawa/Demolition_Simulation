@@ -20,6 +20,7 @@ public class record_keeper : MonoBehaviour
     public Sprite _handle;
     public Sprite _coverGaishi;
     public Sprite _Gaishi;
+    public Sprite _sokoFuta;
 
 
     public Sprite _ari;
@@ -170,6 +171,11 @@ public class record_keeper : MonoBehaviour
             else if (my_Menu.now_activ == my_Menu.Gaishi_func)
             {
                 Target_Sprite.sprite = _Gaishi;
+
+            }
+            else if (my_Menu.now_activ == my_Menu.sokoFuta_func)
+            {
+                Target_Sprite.sprite = _sokoFuta;
 
             }
         }
