@@ -192,7 +192,7 @@ public class my_menu2 : MonoBehaviour
         }
     }
 
-    GameObject rs3_part;
+    public  GameObject rs3_part;
     public List<GameObject> rs3_select = new List<GameObject>();
     public int exist_num;
     public bool exist_part;
@@ -311,12 +311,6 @@ public class my_menu2 : MonoBehaviour
 
         }
     }
-
-
-
-    public Hashtable ans_memo = new Hashtable();
-    public Hashtable true_ans = new Hashtable();
-    public Hashtable obj_menu = new Hashtable();
 
 
 }

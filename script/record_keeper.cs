@@ -5,6 +5,7 @@ using UnityEngine;
 public class record_keeper : MonoBehaviour
 {
     my_menu2 my_Menu;
+    score_manager score_mana;
 
 
     GameObject check_point;
@@ -63,6 +64,8 @@ public class record_keeper : MonoBehaviour
     }
 
     bool once_time = true ;
+    public Hashtable my_ans_par = new Hashtable();
+
     void Update()
     {
 
@@ -78,11 +81,17 @@ public class record_keeper : MonoBehaviour
 
             if (my_Menu.ans_par == true)
             {
+                Debug.Log("ari");
                 Target_Sprite_sta.sprite = _ari;
+                my_ans_par[my_Menu.rs3_part.name] = true;
+                Debug.Log(my_ans_par[my_Menu.rs3_part.name]);
             }
             else
             {
+                Debug.Log("nasi");
                 Target_Sprite_sta.sprite = _nasi;
+                my_ans_par[my_Menu.rs3_part.name] = false;
+                Debug.Log(my_Menu.rs3_part.name);
             }
 
 
@@ -190,6 +199,7 @@ public class record_keeper : MonoBehaviour
                 Target_Sprite.sprite = _tanshi;
 
             }
+
         }
     }
 
