@@ -13,7 +13,7 @@ public class my_menu2 : MonoBehaviour
 
 
    OtherObjectAction ooa, ooa2;
-    OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
+   OtherObjectAction ooa_1, ooa_2, ooa_3, ooa_4, ooa_5, ooa_6,
                       ooa_7, ooa_8, ooa_9, ooa_10, ooa_11, ooa_12,
                       ooa_13, ooa_14, ooa_15, ooa_16, ooa_17, ooa_18,
                       ooa_19, ooa_20, ooa_21, ooa_22, ooa_23, ooa_24;
@@ -52,7 +52,6 @@ public class my_menu2 : MonoBehaviour
         ooa = my_score.transform.GetChild(1).gameObject.GetComponent<OtherObjectAction>();
         ooa2 = my_score.transform.GetChild(2).gameObject.GetComponent<OtherObjectAction>();
         my_score.SetActive(false);
-
 
         my_rs3Menu = GameObject.Find("my_rs3Menu");
     
@@ -134,6 +133,9 @@ public class my_menu2 : MonoBehaviour
             score_on = true;
             ooa.param[0] = 0;
             my_score.SetActive(false);
+
+            now_activ.SetActive(false);
+            my_rs3Menu.SetActive(false);
         }
 
         if (ooa2.param[0] > 0)
